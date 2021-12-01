@@ -1,17 +1,18 @@
 fun main() {
-    fun part1(input: List<String>): Int {
-        return input.size
-    }
-
-    fun part2(input: List<String>): Int {
-        return input.size
+    fun countLargerMeasurements(input: List<String>): Int {
+        return input.map { string ->
+            string.toInt()
+        }.filterIndexed { index, i ->
+            if (index == 0) false // jump over the first measurement
+            else input[index - 1].toInt() < i // check if prev is smaller than actual
+        }.size
     }
 
     // test if implementation meets criteria from the description, like:
     val testInput = readInput("Day01_test")
-    check(part1(testInput) == 1)
+    check(countLargerMeasurements(testInput) == 7)
 
     val input = readInput("Day01")
-    println(part1(input))
-    println(part2(input))
+    println(countLargerMeasurements(testInput))
+    println(countLargerMeasurements(input))
 }
