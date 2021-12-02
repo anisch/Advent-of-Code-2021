@@ -1,5 +1,5 @@
 fun main() {
-    fun countLargerMeasurementsPart1(input: List<String>): Int {
+    fun part1(input: List<String>): Int {
         return input.map { string ->
             string.toInt()
         }.filterIndexed { index, i ->
@@ -8,7 +8,7 @@ fun main() {
         }.size
     }
 
-    fun countLargerMeasurementsPart2(input: List<String>): Int {
+    fun part2(input: List<String>): Int {
         val tripleList = List(input.size - 2) { index ->
             input[index].toInt() + input[index+1].toInt() + input[index+2].toInt()
         }
@@ -20,10 +20,10 @@ fun main() {
 
     // test if implementation meets criteria from the description, like:
     val testInput = readInput("Day01_test")
-    check(countLargerMeasurementsPart1(testInput) == 7)
-    check(countLargerMeasurementsPart2(testInput) == 5)
+    check(part1(testInput) == 7)
+    check(part2(testInput) == 5)
 
     val input = readInput("Day01")
-    println(countLargerMeasurementsPart1(input))
-    println(countLargerMeasurementsPart2(input))
+    println(part1(input))
+    println(part2(input))
 }
