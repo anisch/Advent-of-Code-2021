@@ -8,19 +8,11 @@ fun main() {
 
         val gamma = tmp.map { int ->
             if (int > input.size ushr 1) 1 else 0
-        }.map { int ->
-            int.toString()
-        }.reduce { acc, s ->
-            acc + s
-        }.toInt(2)
+        }.joinToString("").toInt(2)
 
         val epsilon = tmp.map { int ->
             if (int < input.size ushr 1) 1 else 0
-        }.map { int ->
-            int.toString()
-        }.reduce { acc, s ->
-            acc + s
-        }.toInt(2)
+        }.joinToString("").toInt(2)
 
         return gamma * epsilon
     }
@@ -60,17 +52,8 @@ fun main() {
             }
         }
 
-        val oxygen = oxygenList[0].map { int ->
-            int.toString()
-        }.reduce { acc, s ->
-            acc + s
-        }.toInt(2)
-
-        val co2 = co2List[0].map { int ->
-            int.toString()
-        }.reduce { acc, s ->
-            acc + s
-        }.toInt(2)
+        val oxygen = oxygenList.first().joinToString("").toInt(2)
+        val co2 = co2List.first().joinToString("").toInt(2)
 
         return oxygen * co2
     }
