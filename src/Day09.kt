@@ -30,7 +30,7 @@ fun isLowestPoint(map: Array<IntArray>, x: Int, y: Int): Point {
     }
 }
 
-fun findAllLowPoints(heightmap: Array<IntArray>): MutableList<LowPoint> {
+fun findAllLowPoints(heightmap: Array<IntArray>): List<LowPoint> {
     val lowPoints = mutableListOf<LowPoint>()
     for (y in 1 until heightmap.size - 1) {
         for (x in 1 until heightmap[0].size - 1) {
