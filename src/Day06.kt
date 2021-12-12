@@ -39,9 +39,7 @@ fun main() {
     fun part1(input: List<String>): Long {
         var fishList = mapInputAsFishList(input)
 
-        for (day in 1..80) {
-            fishList = reproduce(fishList)
-        }
+        repeat(80) { fishList = reproduce(fishList) }
 
         return fishList.sumOf { it.amount }
     }
@@ -49,9 +47,7 @@ fun main() {
     fun part2(input: List<String>): Long {
         var fishList = mapInputAsFishList(input)
 
-        for (day in 1..256) {
-            fishList = reproduce(fishList)
-        }
+        repeat(256) { fishList = reproduce(fishList) }
 
         return fishList.sumOf { it.amount }
     }
