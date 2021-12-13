@@ -46,20 +46,17 @@ fun flashEnergyUp(octos: List<List<Octopus>>, x: Int, y: Int) {
     octos[y + 1][x + 1].energy += 1
 }
 
-fun resetFlash(octos: List<List<Octopus>>): Int {
-    var flashes = 0
-    (1 until octos.size - 1).forEach { y ->
-        (1 until octos[0].size - 1).forEach { x ->
+fun resetFlash(octos: List<List<Octopus>>): Int =
+    (1 until octos.size - 1).sumOf { y ->
+        (1 until octos[0].size - 1).count { x ->
             val octo = octos[y][x]
             if (octo.isFlashing) {
                 octo.isFlashing = false
                 octo.energy = 0
-                flashes += 1
-            }
+                true
+            } else false
         }
     }
-    return flashes
-}
 
 fun allOctosFlashing(octos: List<List<Octopus>>): Boolean =
     (1 until octos.size - 1).all { y ->
